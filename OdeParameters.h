@@ -34,14 +34,14 @@ namespace ode
 		inline OdeParameters() : 
 			initalDeltaTime(.5),
 			errorBound({.0001,.001}),
-			preferredMethod(odeInterface::OdeSolvers::EULER),
+			preferredMethod(odeInterface::OdeSolvers::NONE),
 			recordFreq(10u)
 			{};
 
 		inline OdeParameters(
 			double dt = .5,
 			const array<double, 2>& errBound = { .0001,.001 },
-			odeInterface::OdeSolvers pMethod = odeInterface::OdeSolvers::EULER,
+			odeInterface::OdeSolvers pMethod = odeInterface::OdeSolvers::NONE,
 			unsigned int rFreq = 10u) : 
 			initalDeltaTime(dt), 
 			errorBound(errBound), 
