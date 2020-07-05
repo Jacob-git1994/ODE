@@ -12,4 +12,5 @@ int main()
 
 	std::cout << params.getInitalDeltatime() << "\n" << params.getErrorBound()[0] << " " << params.getErrorBound()[1] << "\n" << static_cast<int>(params.getPreferredMethod()) << "\n" << params.getRecordFreq() << "\n";
 	std::cout << params.checkParams();
+	return 0;
 }
