@@ -14,7 +14,7 @@ int main()
 	Logger* logger = new Logger();
 	OutputManager* out = new OutputManager(logger, "Eh", "C\\:file.txt", true);
 	OdeParameters params;
-	params.getInitalDeltatime() = .0000001;
+	params.getInitalDeltatime() = .000000001;
 
 	valarray<double> vec;
 	vec.resize(1);
@@ -27,7 +27,7 @@ int main()
 	};
 
 	Euler ode(logger,&params,vec);
-	ode.step(10000000, func, 0.);
+	ode.step(1'000'000'000, func, 0.);
 	std::cout << ode.getStateVector()[0] << "\n";
 
 	delete out;

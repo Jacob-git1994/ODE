@@ -40,7 +40,8 @@ void Euler::step(
 	for (unsigned int i = 0; i < steps; ++i)
 	{
 		func(stateVector, k1, t);
-		stateVector += odeParams->getInitalDeltatime() * k1;
+		k1 *= odeParams->getInitalDeltatime();
+		stateVector += k1;
 	}
 
 	log->logData("Stepped State Vector", __FILE__);
