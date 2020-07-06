@@ -2,19 +2,35 @@
 #include <Windows.h>
 #include "OutputManager.h"
 #include "OdeParameters.h"
-#include "odeInterface.h"
 #include "Ode.h"
+#include "Euler.h"
 #include <iostream>
 
 using namespace ode;
+using std::valarray;
 
 int main()
 {
-	OdeParameters params1(.00001, {.0000005,.00003},odeInterface::OdeSolvers::IMPLICT_EULER,10);
+	Logger* logger = new Logger();
+	OutputManager* out = new OutputManager(logger, "Eh", "C\\:file.txt", true);
+	OdeParameters params;
+	params.getInitalDeltatime() = .0000001;
 
-	OdeParameters params = params1;
+	valarray<double> vec;
+	vec.resize(1);
+	for (auto& el : vec)
+		el = 1.;
 
+	auto func = [](valarray<double>& in, valarray<double>& out, double t)
+	{
+		out[0] = 1.*in[0];
+	};
 
-	std::cout << params.getInitalDeltatime() << "\n" << params.getErrorBound()[0] << " " << params.getErrorBound()[1] << "\n" << static_cast<int>(params.getPreferredMethod()) << "\n" << params.getRecordFreq() << "\n";
-	std::cout << params.checkParams();
+	Euler ode(logger,&params,vec);
+	ode.step(10000000, func, 0.);
+	std::cout << ode.getStateVector()[0] << "\n";
+
+	delete out;
+	delete logger;
+
 }

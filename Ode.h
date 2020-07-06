@@ -3,7 +3,6 @@
 #include <cmath>
 #include <valarray>
 #include "Logger.h"
-#include "odeInterface.h"
 #include "OdeParameters.h"
 #include "OutputManager.h"
 
@@ -12,11 +11,9 @@ using std::valarray;
 
 namespace ode
 {
-	class Ode : public odeInterface
+	class Ode
 	{
-	private:
-
-		OutputManager* output;
+	protected:
 
 		Logger* log;
 
@@ -37,17 +34,14 @@ namespace ode
 		virtual ~Ode() = default;
 
 		Ode(
-			OutputManager*, 
 			Logger*);
 
 		Ode(
-			OutputManager*, 
 			Logger*, 
 			OdeParameters*, 
 			const valarray<double>&);
 
 		virtual void initalize(
-			OutputManager*,
 			Logger*,
 			OdeParameters*,
 			const valarray<double>&);
@@ -56,9 +50,10 @@ namespace ode
 			OdeParameters*, 
 			const valarray<double>&);
 
-		virtual void step() override;
+		virtual void step();
 
-
+		//Getter for state vector
+		inline const valarray<double>& getStateVector() { return stateVector; };
 	};
 
 

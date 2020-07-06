@@ -18,7 +18,7 @@ void Logger::logData(const std::string msg = "This is default message")
 		{
 			currentTime = std::chrono::system_clock::now();
 
-			elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count();
+			elapsedTime = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count());
 
 			std::cout << elapsedTime << "\t\t" << msg << "\n";
 		}
@@ -45,7 +45,7 @@ void Logger::logData(const std::string msg = "This is default message",const std
 		{
 			currentTime = std::chrono::system_clock::now();
 
-			elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count();
+			elapsedTime = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count());
 
 			std::cout << elapsedTime << "\t\t" << msg << "\t\t" << fileName << "\n";
 		}

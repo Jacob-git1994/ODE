@@ -88,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,15 +140,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Euler.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Ode.cpp" />
     <ClCompile Include="OutputManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Euler.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Ode.h" />
-    <ClInclude Include="odeInterface.h" />
     <ClInclude Include="OdeParameters.h" />
     <ClInclude Include="OutputManager.h" />
   </ItemGroup>

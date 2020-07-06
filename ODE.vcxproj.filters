@@ -48,14 +48,14 @@
     <ClInclude Include="Ode.h">
       <Filter>Ode\Header</Filter>
     </ClInclude>
-    <ClInclude Include="odeInterface.h">
-      <Filter>Ode\Header</Filter>
-    </ClInclude>
     <ClInclude Include="OdeParameters.h">
       <Filter>Ode\Header</Filter>
     </ClInclude>
     <ClInclude Include="OutputManager.h">
       <Filter>OutputManager\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Euler.h">
+      <Filter>Ode\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="OutputManager.cpp">
       <Filter>OutputManager\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Euler.cpp">
+      <Filter>Ode\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

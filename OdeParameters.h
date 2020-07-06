@@ -2,7 +2,6 @@
 
 #include <array>
 #include <cmath>
-#include "odeInterface.h"
 #include "Logger.h"
 
 using std::array;
@@ -12,13 +11,17 @@ namespace ode
 {
 	class OdeParameters
 	{
+	public:
+
+		enum class OdeSolvers { NONE = 0, EULER = 1, RUNGE_KUTTA2 = 2, RUNGE_KUTTA4 = 3, IMPLICT_EULER = 4, CRANK_NICOLSON = 5 };
+
 	private:
 
 		double initalDeltaTime;
 
 		array<double,2> errorBound;
 
-		odeInterface::OdeSolvers preferredMethod;
+		OdeSolvers preferredMethod;
 
 		unsigned int recordFreq;
 
@@ -31,17 +34,10 @@ namespace ode
 
 	public:
 
-		inline OdeParameters() : 
-			initalDeltaTime(.5),
-			errorBound({.0001,.001}),
-			preferredMethod(odeInterface::OdeSolvers::NONE),
-			recordFreq(10u)
-			{};
-
 		inline OdeParameters(
 			double dt = .5,
 			const array<double, 2>& errBound = { .0001,.001 },
-			odeInterface::OdeSolvers pMethod = odeInterface::OdeSolvers::NONE,
+			OdeSolvers pMethod = OdeSolvers::NONE,
 			unsigned int rFreq = 10u) : 
 			initalDeltaTime(dt), 
 			errorBound(errBound), 
@@ -88,7 +84,7 @@ namespace ode
 
 		inline array<double,2>& getErrorBound() { return errorBound; };
 
-		inline odeInterface::OdeSolvers& getPreferredMethod() { return preferredMethod; };
+		inline OdeSolvers& getPreferredMethod() { return preferredMethod; };
 
 		inline unsigned int& getRecordFreq() { return recordFreq; };
 	};
