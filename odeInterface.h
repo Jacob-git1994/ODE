@@ -11,7 +11,7 @@ namespace ode
 
 		virtual void step() = 0;
 
-		virtual ~odeInterface() = 0;
+		virtual ~odeInterface() = default;
 
 	};
 

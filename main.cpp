@@ -2,6 +2,8 @@
 #include <Windows.h>
 #include "OutputManager.h"
 #include "OdeParameters.h"
+#include "odeInterface.h"
+#include "Ode.h"
 #include <iostream>
 
 using namespace ode;
