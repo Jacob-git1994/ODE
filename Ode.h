@@ -52,9 +52,11 @@ namespace ode
 			OdeParameters*,
 			const valarray<double>&);
 
-		virtual void initalize(OdeParameters*, const valarray<double>&);
+		virtual void initalize(
+			OdeParameters*, 
+			const valarray<double>&);
 
-		virtual void step();
+		virtual void step() override;
 
 
 	};
