@@ -17,8 +17,6 @@ namespace ode
 
 		Logger* log;
 
-		OdeParameters* odeParams;
-
 		valarray<double> stateVector;
 
 	public:
@@ -38,16 +36,13 @@ namespace ode
 
 		Ode(
 			Logger*, 
-			OdeParameters*, 
 			const valarray<double>&);
 
 		virtual void initalize(
 			Logger*,
-			OdeParameters*,
 			const valarray<double>&);
 
 		virtual void initalize(
-			OdeParameters*, 
 			const valarray<double>&);
 
 		virtual void step();

@@ -145,6 +145,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Ode.cpp" />
     <ClCompile Include="OutputManager.cpp" />
+    <ClCompile Include="RungeKutta4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Euler.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Ode.h" />
     <ClInclude Include="OdeParameters.h" />
     <ClInclude Include="OutputManager.h" />
+    <ClInclude Include="RungeKutta4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -80,13 +80,21 @@ namespace ode
 		}
 
 		//Getters & Setters
-		inline double& getInitalDeltatime() { return initalDeltaTime; };
+		const inline double& getInitalDeltatime() const { return initalDeltaTime; };
 
-		inline array<double,2>& getErrorBound() { return errorBound; };
+		const inline array<double,2>& getErrorBound() const { return errorBound; };
 
-		inline OdeSolvers& getPreferredMethod() { return preferredMethod; };
+		const inline OdeSolvers& getPreferredMethod() const { return preferredMethod; };
 
-		inline unsigned int& getRecordFreq() { return recordFreq; };
+		const inline unsigned int& getRecordFreq() const { return recordFreq; };
+
+		inline OdeParameters& setDeltaTime(double dt) { initalDeltaTime = dt; return *this; };
+
+		inline OdeParameters& setErrorBound(const array<double, 2>& eBound) { errorBound = eBound; return *this; };
+
+		inline OdeParameters& setPreferredMethod(const OdeSolvers& pMethod) { preferredMethod = pMethod; return *this; };
+
+		inline OdeParameters& setRecordFreq(unsigned int freq) { recordFreq = freq; return *this; };
 	};
 
 }

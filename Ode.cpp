@@ -4,44 +4,37 @@ using namespace ode;
 
 Ode::Ode(
 	Logger* logger) :
-	log(logger),
-	odeParams(nullptr)
+	log(logger)
 {
+	log->logData("Initalized Base Solver", __FILE__);
 }
 
 Ode::Ode(
 	Logger* logger,
-	OdeParameters* params,
 	const valarray<double>& sVec) : 
 	log(logger),
-	odeParams(params),
 	stateVector(sVec)
 {
+	log->logData("Initalized Base Solver", __FILE__);
 }
 
 void Ode::initalize(
 	Logger* logger, 
-	OdeParameters* params, 
 	const valarray<double>& sVec)
 {	
 	log = logger;
 
-	odeParams = params;
-
 	stateVector = sVec;
 
-	log->logData("Initalized Ode Solver", __FILE__);
+	log->logData("Initalized Base Solver", __FILE__);
 }
 
 void Ode::initalize(
-	OdeParameters* params,
 	const valarray<double>& sVec)
 {
-	odeParams = params;
-
 	stateVector = sVec;
 
-	log->logData("Initalized Ode Solver", __FILE__);
+	log->logData("Initalized Base Solver", __FILE__);
 }
 
 void Ode::step()

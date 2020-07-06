@@ -7,6 +7,7 @@ Logger::Logger() :
 	isRunning(true),
 	elapsedTime(0.)
 {
+	this->logData("Initalized Logger", __FILE__);
 	//std::cout << "Elapsed Time\tLog Message\n";
 }
 

@@ -4,7 +4,9 @@
 #include "OdeParameters.h"
 #include "Ode.h"
 #include "Euler.h"
+#include "RungeKutta4.h"
 #include <iostream>
+#include <cmath>
 
 using namespace ode;
 using std::valarray;
@@ -14,21 +16,25 @@ int main()
 	Logger* logger = new Logger();
 	OutputManager* out = new OutputManager(logger, "Eh", "C\\:file.txt", true);
 	OdeParameters params;
-	params.getInitalDeltatime() = .000000001;
+	params.setDeltaTime(.000001);
 
 	valarray<double> vec;
-	vec.resize(1);
-	for (auto& el : vec)
-		el = 1.;
+	vec.resize(2);
+	vec[0] = 1.;
+	vec[1] = 0.;
 
-	auto func = [](valarray<double>& in, valarray<double>& out, double t)
+
+	auto func = [](const valarray<double>& in, valarray<double>& out, double t)
 	{
-		out[0] = 1.*in[0];
+		out[0] = in[1];
+		out[1] = -(in[1] + in[0]);
 	};
 
-	Euler ode(logger,&params,vec);
-	ode.step(1'000'000'000, func, 0.);
+	RungeKutta4 ode(logger,vec);
+	ode.step(1'000'000, func, 0.,params);
 	std::cout << ode.getStateVector()[0] << "\n";
+
+	std::cout << .00001 * 100'000 << "\n";
 
 	delete out;
 	delete logger;

@@ -57,6 +57,9 @@
     <ClInclude Include="Euler.h">
       <Filter>Ode\Header</Filter>
     </ClInclude>
+    <ClInclude Include="RungeKutta4.h">
+      <Filter>Ode\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +75,9 @@
       <Filter>OutputManager\Source</Filter>
     </ClCompile>
     <ClCompile Include="Euler.cpp">
+      <Filter>Ode\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RungeKutta4.cpp">
       <Filter>Ode\Source</Filter>
     </ClCompile>
   </ItemGroup>

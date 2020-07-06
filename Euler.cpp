@@ -4,43 +4,44 @@ using namespace ode;
 
 Euler::Euler(
 	Logger* log,
-	OdeParameters* params, //TODO Edit params tp copy
 	const valarray<double>& sVec) :
-	Ode(log, params, sVec)
+	Ode(log, sVec)
 {
 	k1.resize(sVec.size());
+	log->logData("Initalized Euler Solver", __FILE__);
 }
 
 void Euler::initalize(
 	Logger* log,
-	OdeParameters* params,
 	const valarray<double>& sVec)
 {
-	Ode::initalize(log, params, sVec);
+	Ode::initalize(log, sVec);
 	k1.resize(sVec.size());
 
-	log->logData("Initalized Ode Solver", __FILE__);
+	log->logData("Initalized Euler Solver", __FILE__);
 }
 
 void Euler::initalize(
-	OdeParameters* params,
 	const valarray<double>& sVec)
 {
-	Ode::initalize(params, sVec);
+	Ode::initalize(sVec);
 	k1.resize(sVec.size());
 
-	log->logData("Initalized Ode Solver", __FILE__);
+	log->logData("Initalized Euler Solver", __FILE__);
 }
 
 void Euler::step(
 	unsigned int steps, 
-	void (*func)(valarray<double>&, valarray<double>& ,double),
-	double t)
+	void (*func)(const valarray<double>&, valarray<double>& ,double),
+	double t,
+	const OdeParameters& params)
 {
+	log->logData("Stepping State Vector", __FILE__);
+
 	for (unsigned int i = 0; i < steps; ++i)
 	{
 		func(stateVector, k1, t);
-		k1 *= odeParams->getInitalDeltatime();
+		k1 *= params.getInitalDeltatime();
 		stateVector += k1;
 	}
 
