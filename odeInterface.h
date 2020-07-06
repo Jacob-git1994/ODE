@@ -9,7 +9,7 @@ namespace ode
 
 		virtual void initalize() = 0;
 
-		virtual void solve() = 0;
+		virtual void step() = 0;
 
 		virtual ~odeInterface() = 0;
 

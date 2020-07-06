@@ -22,30 +22,54 @@
     <Filter Include="Ode">
       <UniqueIdentifier>{2fbd44ad-d25d-44d9-a8cb-c7b7adb43019}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logger\Header">
+      <UniqueIdentifier>{c051a63a-451d-4559-961d-348b82f447ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logger\Source">
+      <UniqueIdentifier>{99084e00-c2cf-4758-8072-2ce47f4451b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ode\Header">
+      <UniqueIdentifier>{c6b740b5-5817-4b0b-85ad-b413e2cf3575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ode\Source">
+      <UniqueIdentifier>{72446082-1700-4fe7-beaa-309f5ba7b51a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OutputManager\Header">
+      <UniqueIdentifier>{ad22e711-f78a-4b06-b26e-eccc8397ed13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OutputManager\Source">
+      <UniqueIdentifier>{be056a15-bd50-451b-8653-47356d274a90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
-      <Filter>Logger</Filter>
+      <Filter>Logger\Header</Filter>
     </ClInclude>
-    <ClInclude Include="OutputManager.h">
-      <Filter>OutputManager</Filter>
+    <ClInclude Include="Ode.h">
+      <Filter>Ode\Header</Filter>
     </ClInclude>
     <ClInclude Include="odeInterface.h">
-      <Filter>Ode</Filter>
+      <Filter>Ode\Header</Filter>
     </ClInclude>
     <ClInclude Include="OdeParameters.h">
-      <Filter>Ode</Filter>
+      <Filter>Ode\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputManager.h">
+      <Filter>OutputManager\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Logger.cpp">
-      <Filter>Logger</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Logger\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ode.cpp">
+      <Filter>Ode\Source</Filter>
+    </ClCompile>
     <ClCompile Include="OutputManager.cpp">
-      <Filter>OutputManager</Filter>
+      <Filter>OutputManager\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
