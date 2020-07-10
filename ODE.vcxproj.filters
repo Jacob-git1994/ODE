@@ -40,6 +40,15 @@
     <Filter Include="OutputManager\Source">
       <UniqueIdentifier>{be056a15-bd50-451b-8653-47356d274a90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="OdeFactory">
+      <UniqueIdentifier>{7a42af91-444b-4b88-ae66-bf9454d398ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OdeFactory\Header">
+      <UniqueIdentifier>{bb9ae8b4-c03d-4ca8-8da9-0f0924967c21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OdeFactory\Source">
+      <UniqueIdentifier>{a47f0fd1-a1cb-4110-b0ff-d76943951793}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logger.h">
@@ -69,6 +78,12 @@
     <ClInclude Include="CrankNicolson.h">
       <Filter>Ode\Header</Filter>
     </ClInclude>
+    <ClInclude Include="OdeFactory.h">
+      <Filter>OdeFactory\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="OdeSolver.h">
+      <Filter>OdeFactory\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -97,6 +112,12 @@
     </ClCompile>
     <ClCompile Include="CrankNicolson.cpp">
       <Filter>Ode\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OdeFactory.cpp">
+      <Filter>OdeFactory\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="OdeSolver.cpp">
+      <Filter>OdeFactory\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
