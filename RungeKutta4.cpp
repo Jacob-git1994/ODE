@@ -13,7 +13,7 @@ RungeKutta4::RungeKutta4(
 	k3.resize(sVec.size());
 	k4.resize(sVec.size());
 
-	log->logData("Initalized RungeKutta4 Solver", __FILE__);
+	log->logData("Initalized RungeKutta4", __FILE__,__LINE__);
 }
 
 void RungeKutta4::initalize(
@@ -27,7 +27,7 @@ void RungeKutta4::initalize(
 	k3.resize(sVec.size());
 	k4.resize(sVec.size());
 
-	log->logData("Initalized RungeKutta4 Solver", __FILE__);
+	log->logData("Initalized RungeKutta4", __FILE__,__LINE__);
 }
 
 void RungeKutta4::initalize(
@@ -40,7 +40,7 @@ void RungeKutta4::initalize(
 	k3.resize(sVec.size());
 	k4.resize(sVec.size());
 
-	log->logData("Initalized RungeKutta4 Solver", __FILE__);
+	log->logData("Initalized RungeKutta4", __FILE__,__LINE__);
 }
 
 void RungeKutta4::step(
@@ -49,7 +49,7 @@ void RungeKutta4::step(
 	double t,
 	const OdeParameters& params)
 {
-	log->logData("Stepping State Vector", __FILE__);
+	log->logData("Stepping State Vector", __FILE__,__LINE__);
 
 	for (unsigned int i = 0; i < steps; ++i)
 	{
@@ -61,5 +61,5 @@ void RungeKutta4::step(
 		stateVector += (1. / 6.) * params.getInitalDeltatime() * (k1 + k2 + k3 + k4);
 	}
 
-	log->logData("Stepped State Vector", __FILE__);
+	log->logData("Stepped State Vector", __FILE__,__LINE__);
 }

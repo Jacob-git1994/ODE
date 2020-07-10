@@ -3,6 +3,7 @@
 #include <chrono>
 #include <string>
 #include <stdlib.h>
+#include <iomanip>
 
 namespace ode
 {
@@ -35,6 +36,8 @@ namespace ode
 		void logData(const std::string);
 
 		void logData(const std::string,const std::string);
+
+		void logData(const std::string, const std::string, const int);
 
 		void stop();
 

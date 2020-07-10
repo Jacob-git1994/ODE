@@ -6,7 +6,7 @@ Ode::Ode(
 	Logger* logger) :
 	log(logger)
 {
-	log->logData("Initalized Base Solver", __FILE__);
+	log->logData("Initalized Base Solver", __FILE__,__LINE__);
 }
 
 Ode::Ode(
@@ -15,7 +15,7 @@ Ode::Ode(
 	log(logger),
 	stateVector(sVec)
 {
-	log->logData("Initalized Base Solver", __FILE__);
+	log->logData("Initalized Base Solver", __FILE__,__LINE__);
 }
 
 void Ode::initalize(
@@ -26,7 +26,7 @@ void Ode::initalize(
 
 	stateVector = sVec;
 
-	log->logData("Initalized Base Solver", __FILE__);
+	log->logData("Initalized Base Solver", __FILE__,__LINE__);
 }
 
 void Ode::initalize(
@@ -34,7 +34,7 @@ void Ode::initalize(
 {
 	stateVector = sVec;
 
-	log->logData("Initalized Base Solver", __FILE__);
+	log->logData("Initalized Base Solver", __FILE__,__LINE__);
 }
 
 void Ode::step()

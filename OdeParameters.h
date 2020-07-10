@@ -21,6 +21,8 @@ namespace ode
 
 		array<double,2> errorBound;
 
+		array<double, 2> timeBound;
+
 		OdeSolvers preferredMethod;
 
 		unsigned int recordFreq;
@@ -37,10 +39,12 @@ namespace ode
 		inline OdeParameters(
 			double dt = .5,
 			const array<double, 2>& errBound = { .0001,.001 },
+			const array<double, 2>& tBound = { 0.,1. },
 			OdeSolvers pMethod = OdeSolvers::NONE,
 			unsigned int rFreq = 10u) : 
 			initalDeltaTime(dt), 
-			errorBound(errBound), 
+			errorBound(errBound),
+			timeBound(tBound),
 			preferredMethod(pMethod), 
 			recordFreq(rFreq) {};
 
@@ -51,9 +55,9 @@ namespace ode
 		{
 			initalDeltaTime = params.initalDeltaTime;
 
-			errorBound[0] = params.errorBound[0];
+			errorBound = params.errorBound;
 
-			errorBound[1] = params.errorBound[1];
+			timeBound = params.timeBound;
 
 			preferredMethod = params.preferredMethod;
 
@@ -65,9 +69,9 @@ namespace ode
 		{
 			initalDeltaTime = params.initalDeltaTime;
 
-			errorBound[0] = params.errorBound[0];
+			errorBound = params.errorBound;
 
-			errorBound[1] = params.errorBound[1];
+			timeBound = params.timeBound;
 
 			preferredMethod = params.preferredMethod;
 
@@ -84,6 +88,8 @@ namespace ode
 
 		const inline array<double,2>& getErrorBound() const { return errorBound; };
 
+		const inline array<double, 2>& getTimeBound() const { return timeBound; };
+
 		const inline OdeSolvers& getPreferredMethod() const { return preferredMethod; };
 
 		const inline unsigned int& getRecordFreq() const { return recordFreq; };
@@ -91,6 +97,8 @@ namespace ode
 		inline OdeParameters& setDeltaTime(double dt) { initalDeltaTime = dt; return *this; };
 
 		inline OdeParameters& setErrorBound(const array<double, 2>& eBound) { errorBound = eBound; return *this; };
+
+		inline OdeParameters& setTimeBound(const array<double, 2>& tBound) { timeBound = tBound; return *this; };
 
 		inline OdeParameters& setPreferredMethod(const OdeSolvers& pMethod) { preferredMethod = pMethod; return *this; };
 

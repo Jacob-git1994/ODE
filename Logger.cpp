@@ -7,11 +7,11 @@ Logger::Logger() :
 	isRunning(true),
 	elapsedTime(0.)
 {
-	this->logData("Initalized Logger", __FILE__);
+	this->logData("Initalized Logger", __FILE__,__LINE__);
 	//std::cout << "Elapsed Time\tLog Message\n";
 }
 
-void Logger::logData(const std::string msg = "This is default message")
+void Logger::logData(const std::string msg)
 {
 	try
 	{
@@ -21,7 +21,7 @@ void Logger::logData(const std::string msg = "This is default message")
 
 			elapsedTime = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count());
 
-			std::cout << elapsedTime << "\t\t" << msg << "\n";
+			std::cout << std::left << elapsedTime << "\t\t" << msg << "\n";
 		}
 		else
 		{
@@ -32,13 +32,13 @@ void Logger::logData(const std::string msg = "This is default message")
 	{
 		isRunning = true;
 
-		this->logData(e.what(),__FILE__);
+		this->logData(e.what(),__FILE__,__LINE__);
 
 		isRunning = false;
 	}
 }
 
-void Logger::logData(const std::string msg = "This is default message",const std::string fileName = "Unknown File")
+void Logger::logData(const std::string msg,const std::string fileName)
 {
 	try
 	{
@@ -48,7 +48,7 @@ void Logger::logData(const std::string msg = "This is default message",const std
 
 			elapsedTime = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count());
 
-			std::cout << elapsedTime << "\t\t" << msg << "\t\t" << fileName << "\n";
+			std::cout << std::left << elapsedTime << "\t\t" << msg << "\t\t" << fileName << "\n";
 		}
 		else
 		{
@@ -59,7 +59,34 @@ void Logger::logData(const std::string msg = "This is default message",const std
 	{
 		isRunning = true;
 
-		this->logData(e.what(),__FILE__);
+		this->logData(e.what(),__FILE__,__LINE__);
+
+		isRunning = false;
+	}
+}
+
+void Logger::logData(const std::string msg, const std::string fileName,const int lineNumber)
+{
+	try
+	{
+		if (isRunning)
+		{
+			currentTime = std::chrono::system_clock::now();
+
+			elapsedTime = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count());
+
+			std::cout << std::left << elapsedTime << "\t\t" << lineNumber << "\t\t" << msg << "\t\t" << fileName << "\n";
+		}
+		else
+		{
+			throw std::runtime_error("Logger has stopped");
+		}
+	}
+	catch (std::exception& e)
+	{
+		isRunning = true;
+
+		this->logData(e.what(), __FILE__,__LINE__);
 
 		isRunning = false;
 	}

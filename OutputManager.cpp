@@ -15,7 +15,7 @@ OutputManager::OutputManager(Logger* log, const std::string path = "DefaultDir",
 		outFile.open(fileName.c_str());
 		if (!outFile.is_open())
 		{
-			logger->logData("Unable to open file, unable to record data");
+			logger->logData("Unable to open file",__FILE__,__LINE__);
 
 			isFileOpen = false;
 
@@ -28,7 +28,7 @@ OutputManager::OutputManager(Logger* log, const std::string path = "DefaultDir",
 	}
 	else
 	{
-		logger->logData("Data wont be recorded into text file");
+		logger->logData("Not Recording Data",__FILE__,__LINE__);
 	}
 }
 
@@ -45,7 +45,7 @@ void OutputManager::recordOutput(double time, const std::valarray<double>& state
 {
 	if (shouldWeOutput)
 	{
-		logger->logData("Recording Data to File");
+		logger->logData("Recording Data",__FILE__,__LINE__);
 
 		outFile << time << "\t";
 
@@ -59,7 +59,7 @@ void OutputManager::recordOutput(double time, const std::valarray<double>& state
 
 void OutputManager::recordOutput(std::ostream& outStream, double time, const std::valarray<double>& stateVector)
 {
-	logger->logData("Recording Data to Command Prompt");
+	logger->logData("Recording Data to Command Prompt",__FILE__,__LINE__);
 
 	outStream << time << "\t";
 
