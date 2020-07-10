@@ -34,14 +34,14 @@ void Euler::step(
 	unsigned int steps, 
 	void (*func)(const valarray<double>&, valarray<double>& ,double),
 	double t,
-	const OdeParameters& params)
+	const double dt)
 {
 	log->logData("Stepping State Vector", __FILE__,__LINE__);
 
 	for (unsigned int i = 0; i < steps; ++i)
 	{
 		func(stateVector, k1, t);
-		k1 *= params.getInitalDeltatime();
+		k1 *= dt;
 		stateVector += k1;
 	}
 

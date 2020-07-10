@@ -2,7 +2,6 @@
 #include <valarray>
 #include "Ode.h"
 #include "Logger.h"
-#include "OdeParameters.h"
 
 using std::valarray;
 
@@ -30,10 +29,11 @@ namespace ode
 		virtual void initalize(
 			const valarray<double>&) override;
 
-		virtual void step(unsigned int,
+		virtual void step(
+			unsigned int,
 			void (*func)(const valarray<double>&, valarray<double>&, double),
 			double,
-			const OdeParameters&);
+			double);
 	};
 
 

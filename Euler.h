@@ -2,7 +2,6 @@
 #include <valarray>
 #include "Logger.h"
 #include "OutputManager.h"
-#include "OdeParameters.h"
 #include "Ode.h"
 
 using std::valarray;
@@ -34,7 +33,7 @@ namespace ode
 			unsigned int,
 			void (*func)(const valarray<double>&,valarray<double>&,double),
 			double,
-			const OdeParameters&);
+			double);
 
 	};
 

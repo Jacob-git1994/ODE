@@ -35,7 +35,7 @@ int main()
 	};
 
 	Euler ode(logger,vec);
-	ode.step(10'000'000, func, 0.,params);
+	ode.step(10'000'000, func, 0.,params.getInitalDeltatime());
 	std::cout << ode.getStateVector()[0] << "\n";
 
 	std::cout << .00001 * 100'000 << "\n";
