@@ -140,19 +140,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CrankNicolson.cpp" />
     <ClCompile Include="Euler.cpp" />
+    <ClCompile Include="ImplictEuler.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Ode.cpp" />
     <ClCompile Include="OutputManager.cpp" />
+    <ClCompile Include="RungeKutta2.cpp" />
     <ClCompile Include="RungeKutta4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CrankNicolson.h" />
     <ClInclude Include="Euler.h" />
+    <ClInclude Include="ImplictEuler.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Ode.h" />
     <ClInclude Include="OdeParameters.h" />
     <ClInclude Include="OutputManager.h" />
+    <ClInclude Include="RungeKutta2.h" />
     <ClInclude Include="RungeKutta4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

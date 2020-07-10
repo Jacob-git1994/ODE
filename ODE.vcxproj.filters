@@ -60,6 +60,15 @@
     <ClInclude Include="RungeKutta4.h">
       <Filter>Ode\Header</Filter>
     </ClInclude>
+    <ClInclude Include="RungeKutta2.h">
+      <Filter>Ode\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ImplictEuler.h">
+      <Filter>Ode\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CrankNicolson.h">
+      <Filter>Ode\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -78,6 +87,15 @@
       <Filter>Ode\Source</Filter>
     </ClCompile>
     <ClCompile Include="RungeKutta4.cpp">
+      <Filter>Ode\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RungeKutta2.cpp">
+      <Filter>Ode\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ImplictEuler.cpp">
+      <Filter>Ode\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CrankNicolson.cpp">
       <Filter>Ode\Source</Filter>
     </ClCompile>
   </ItemGroup>
