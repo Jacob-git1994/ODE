@@ -34,6 +34,8 @@ namespace ode
 
 		inline bool checkRecordFreq() const { return recordFreq > 0; };
 
+		inline bool checkTimeBound() const { return timeBound[0] < timeBound[1]; };
+
 	public:
 
 		inline OdeParameters(
@@ -82,7 +84,7 @@ namespace ode
 
 		inline bool checkParams() const
 		{
-			return checkDeltaTime() && checkErrorBounds() && checkRecordFreq();
+			return checkDeltaTime() && checkErrorBounds() && checkRecordFreq() && checkTimeBound();
 		}
 
 		//Getters & Setters
