@@ -113,6 +113,6 @@ void ode::OdeSolver::initalize(
         log->logData("Exiting Program Now", __FILE__, __LINE__);
         exit(1);
     }
-
+	
     logger->logData("Initalized Methods", __FILE__, __LINE__);
 }
