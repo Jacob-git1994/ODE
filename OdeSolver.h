@@ -6,6 +6,7 @@
 #include <thread>
 #include <utility>
 #include <string>
+#include <exception>
 #include "Logger.h"
 #include "OutputManager.h"
 #include "OdeParameters.h"
