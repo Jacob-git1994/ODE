@@ -73,10 +73,10 @@ OdeSolver::~OdeSolver()
 }
 
 void ode::OdeSolver::initalize(
-                               Logger* log,
-                               const OdeParameters& params,
-                               const valarray<double>& initalCondition,
-                               bool shouldRecord)
+	Logger* log,
+	const OdeParameters& params,
+	const valarray<double>& initalCondition,
+	bool shouldRecord)
 {
     logger = log;
     
