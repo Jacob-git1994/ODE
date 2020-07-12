@@ -76,7 +76,9 @@ namespace ode
 			preferredMethod = params.preferredMethod;
 
 			recordFreq = params.recordFreq;
-		};
+            
+            return *this;
+        };
 
 		inline bool checkParams() const
 		{

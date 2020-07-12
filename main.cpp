@@ -1,5 +1,4 @@
 #include "Logger.h"
-#include <Windows.h>
 #include "OutputManager.h"
 #include "OdeParameters.h"
 #include "Ode.h"
