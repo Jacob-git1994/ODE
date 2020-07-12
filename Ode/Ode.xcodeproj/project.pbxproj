@@ -59,6 +59,7 @@
 		1675FD3A24BBB15C0075EA72 /* ImplictEuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImplictEuler.h; path = ../../ImplictEuler.h; sourceTree = "<group>"; };
 		1675FD3B24BBB15C0075EA72 /* OdeParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OdeParameters.h; path = ../../OdeParameters.h; sourceTree = "<group>"; };
 		1675FD3C24BBB15C0075EA72 /* ImplictEuler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImplictEuler.cpp; path = ../../ImplictEuler.cpp; sourceTree = "<group>"; };
+		1675FD4824BBB8200075EA72 /* testHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = testHeader.h; path = ../../../../../testHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +117,7 @@
 				1675FD2824BBB15C0075EA72 /* RungeKutta2.h */,
 				1675FD3124BBB15C0075EA72 /* RungeKutta4.cpp */,
 				1675FD2F24BBB15C0075EA72 /* RungeKutta4.h */,
+				1675FD4824BBB8200075EA72 /* testHeader.h */,
 			);
 			path = Ode;
 			sourceTree = "<group>";
