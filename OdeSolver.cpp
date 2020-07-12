@@ -16,12 +16,12 @@ OdeSolver::OdeSolver(
 		//Create our ODE Solver Methods
 		int eulerEnum = static_cast<int>(OdeParameters::OdeSolvers::EULER);
 		solverMap.emplace(eulerEnum, new Euler(logger, initalCondition));
-		outputMap.emplace(eulerEnum, new OutputManager(logger, "Dir Does not work", "C:\\Euler.txt", shouldRecord));
+		outputMap.emplace(eulerEnum, new OutputManager(logger, "Dir Does not work", "Euler.txt", shouldRecord));
 		paramsMap.emplace(eulerEnum, new OdeParameters(params));
 
 		int rungeKuttaEnum = static_cast<int>(OdeParameters::OdeSolvers::RUNGE_KUTTA4);
 		solverMap.emplace(rungeKuttaEnum, new RungeKutta4(log, initalCondition));
-		outputMap.emplace(rungeKuttaEnum, new OutputManager(logger, "Dir Does not work", "C:\\RungeKutta.txt", shouldRecord));
+		outputMap.emplace(rungeKuttaEnum, new OutputManager(logger, "Dir Does not work", "RungeKutta.txt", shouldRecord));
 		paramsMap.emplace(rungeKuttaEnum, new OdeParameters(params));
 	}
 	catch (std::exception& e)
