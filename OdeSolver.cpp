@@ -110,7 +110,9 @@ void ode::OdeSolver::initalize(
     catch (std::exception& e)
     {
         log->logData(e.what(), __FILE__, __LINE__);
+
         log->logData("Exiting Program Now", __FILE__, __LINE__);
+
         exit(1);
     }
 
