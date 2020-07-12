@@ -17,6 +17,8 @@ int main()
 	Logger* log = new Logger();
 	OdeParameters* params = new OdeParameters();
 
+	params->setDeltaTime(10);
+
 	valarray<double> x(1000);
 
 	bool shouldRecord = true;

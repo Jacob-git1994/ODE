@@ -9,6 +9,18 @@ OdeSolver::OdeSolver(
 	bool shouldRecord) : 
 	logger(log)
 {
+	//Make sure the parameters are correct
+	if (!params.checkParams())
+	{
+		log->logData("Invalid parameters", __FILE__, __LINE__);
+		log->logData("Exiting Program Now", __FILE__, __LINE__);
+		exit(1);
+	}
+	else
+	{
+		//Do Nothing Here
+	}
+
 	logger->logData("Initalizing Methods", __FILE__, __LINE__);
 
 	try
