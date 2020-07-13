@@ -29,11 +29,11 @@ namespace ode
 	{
 	private:
 
-		map<int, map<double, valarray<double>>> dataStore;
-
 		Logger* logger;
 
 	protected:
+		
+		map<int, map<double, valarray<double>>> dataStore;
 
 		map<int, Ode*> solverMap;
 		
