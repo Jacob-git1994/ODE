@@ -58,7 +58,7 @@ void RungeKutta4::step(
 		func(k2 * .5 * dt + stateVector, k3, t + dt * .5);
 		func(k3 * dt + stateVector, k2, t + dt);
 
-		stateVector += (1. / 6.) * dt * (k1 + k2 + k3 + k4);
+		stateVector += (1. / 6.) * dt * (k1 + 2. * k2 + 2. * k3 + k4);
 	}
 
 	log->logData("Stepped State Vector", __FILE__,__LINE__);
