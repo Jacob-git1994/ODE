@@ -42,6 +42,12 @@ namespace ode
 		map<int, OdeParameters*> paramsMap;
 		
 		map<int, double> optimalDeltaTimeMap;
+		
+		Ode* checkOdeAllocation(Ode*);
+		
+		OutputManager* checkOutputAllocation(OutputManager*);
+		
+		OdeParameters* checkOdeParameters(OdeParameters*);
 
 	public:
 

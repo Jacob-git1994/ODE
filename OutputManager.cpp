@@ -12,7 +12,7 @@ OutputManager::OutputManager(Logger* log, const std::string path = "DefaultDir",
 
 	if (shouldWeOutput)
 	{
-		outFile.open(fileName.c_str());
+		outFile.open(fileName.c_str(),std::ios::out);
 		if (!outFile.is_open())
 		{
 			logger->logData("Unable to open file",__FILE__,__LINE__);

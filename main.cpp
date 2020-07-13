@@ -18,7 +18,7 @@ int main()
 
 	params->setDeltaTime(10);
 
-	valarray<double> x(100000);
+	valarray<double> x(500'000'000);
 
 	bool shouldRecord = true;
 
