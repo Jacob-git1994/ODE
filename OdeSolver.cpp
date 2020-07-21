@@ -104,6 +104,7 @@ OdeSolver::OdeSolver(
 		exit(1);
 	}
 
+	isImplmented = true;
 	logger->logData("Initalized Methods", __FILE__, __LINE__);
 }
 
@@ -141,10 +142,15 @@ void ode::OdeSolver::initalize(
         log->logData("Exiting Program Now", __FILE__, __LINE__);
         exit(1);
     }
-    else
+    else if (isImplmented)
     {
-        //Do Nothing Here
+		log->logData("Solver is already implemented", __FILE__, __LINE__);
+		return;
     }
+	else
+	{
+		//No need to do anything here...this is just for debugging purposes
+	}
 
     logger->logData("Initalizing Methods", __FILE__, __LINE__);
 
@@ -191,4 +197,6 @@ void ode::OdeSolver::initalize(
     }
 	
     logger->logData("Initalized Methods", __FILE__, __LINE__);
+
+	isImplmented = true;
 }

@@ -29,6 +29,8 @@ namespace ode
 		map<int, map<double, valarray<double>>> dataStore;
 
 		map<int, SolverParameters> solverMap;
+
+		bool isImplmented;
 		
 		Ode* checkOdeAllocation(Ode*);
 		
