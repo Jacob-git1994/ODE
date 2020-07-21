@@ -84,6 +84,9 @@
     <ClInclude Include="OdeSolver.h">
       <Filter>OdeFactory\Header</Filter>
     </ClInclude>
+    <ClInclude Include="SolverParameters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

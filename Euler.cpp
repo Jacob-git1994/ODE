@@ -4,28 +4,27 @@ using namespace ode;
 
 Euler::Euler(
 	Logger* log,
-	const valarray<double>& sVec) :
-	Ode(log, sVec)
+	size_t vSize) :
+	Ode(log)
 {
-	k1.resize(sVec.size());
+	k1.resize(vSize);
 	log->logData("Initalized Euler Solver", __FILE__,__LINE__);
 }
 
 void Euler::initalize(
 	Logger* log,
-	const valarray<double>& sVec)
+	size_t vSize)
 {
-	Ode::initalize(log, sVec);
-	k1.resize(sVec.size());
+	Ode::initalize(log);
+	k1.resize(vSize);
 
 	log->logData("Initalized Euler Solver", __FILE__,__LINE__);
 }
 
 void Euler::initalize(
-	const valarray<double>& sVec)
+	size_t vSize)
 {
-	Ode::initalize(sVec);
-	k1.resize(sVec.size());
+	k1.resize(vSize);
 
 	log->logData("Initalized Euler Solver", __FILE__,__LINE__);
 }
@@ -34,7 +33,8 @@ void Euler::step(
 	unsigned int steps, 
 	void (*func)(const valarray<double>&, valarray<double>& ,double),
 	double t,
-	const double dt)
+	const double dt,
+	valarray<double>& stateVector)
 {
 	log->logData("Stepping State Vector", __FILE__,__LINE__);
 

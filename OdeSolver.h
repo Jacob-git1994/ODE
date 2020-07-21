@@ -1,11 +1,6 @@
 #pragma once
 #include <map>
 #include <valarray>
-#include <vector>
-#include <chrono>
-#include <thread>
-#include <utility>
-#include <string>
 #include <exception>
 #include "Logger.h"
 #include "OutputManager.h"
@@ -16,12 +11,10 @@
 #include "RungeKutta4.h"
 #include "ImplictEuler.h"
 #include "CrankNicolson.h"
+#include "SolverParameters.h"
 
 using std::map;
 using std::valarray;
-using std::thread;
-using std::vector;
-using std::string;
 
 namespace ode
 {
@@ -35,13 +28,7 @@ namespace ode
 		
 		map<int, map<double, valarray<double>>> dataStore;
 
-		map<int, Ode*> solverMap;
-		
-		map<int, OutputManager*> outputMap;
-
-		map<int, OdeParameters*> paramsMap;
-		
-		map<int, double> optimalDeltaTimeMap;
+		map<int, SolverParameters> solverMap;
 		
 		Ode* checkOdeAllocation(Ode*);
 		

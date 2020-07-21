@@ -166,6 +166,7 @@
     <ClInclude Include="OutputManager.h" />
     <ClInclude Include="RungeKutta2.h" />
     <ClInclude Include="RungeKutta4.h" />
+    <ClInclude Include="SolverParameters.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

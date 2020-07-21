@@ -9,30 +9,10 @@ Ode::Ode(
 	log->logData("Initalized Base Solver", __FILE__,__LINE__);
 }
 
-Ode::Ode(
-	Logger* logger,
-	const valarray<double>& sVec) : 
-	log(logger),
-	stateVector(sVec)
-{
-	log->logData("Initalized Base Solver", __FILE__,__LINE__);
-}
-
 void Ode::initalize(
-	Logger* logger, 
-	const valarray<double>& sVec)
+	Logger* logger)
 {	
 	log = logger;
-
-	stateVector = sVec;
-
-	log->logData("Initalized Base Solver", __FILE__,__LINE__);
-}
-
-void Ode::initalize(
-	const valarray<double>& sVec)
-{
-	stateVector = sVec;
 
 	log->logData("Initalized Base Solver", __FILE__,__LINE__);
 }

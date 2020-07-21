@@ -66,14 +66,36 @@ OdeSolver::OdeSolver(
 	{
 		//Create our ODE Solver Methods
 		int eulerEnum = static_cast<int>(OdeParameters::OdeSolvers::EULER);
-		solverMap.emplace(eulerEnum, checkOdeAllocation(new Euler(logger, initalCondition)));
-		outputMap.emplace(eulerEnum, checkOutputAllocation(new OutputManager(logger, "Dir Does not work", "Euler.txt", shouldRecord)));
-		paramsMap.emplace(eulerEnum, checkOdeParameters(new OdeParameters(params)));
+		solverMap.emplace(
+			eulerEnum,
+			SolverParameters(
+				checkOdeAllocation(new Euler(
+					logger,
+					initalCondition.size())),
+				checkOutputAllocation(new OutputManager(
+					logger, 
+					"Dir does not work", 
+					"Euler.txt", 
+					shouldRecord)),
+				checkOdeParameters(new OdeParameters(
+					params)),
+				initalCondition));
 
 		int rungeKuttaEnum = static_cast<int>(OdeParameters::OdeSolvers::RUNGE_KUTTA4);
-		solverMap.emplace(rungeKuttaEnum, checkOdeAllocation(new RungeKutta4(log, initalCondition)));
-		outputMap.emplace(rungeKuttaEnum, checkOutputAllocation(new OutputManager(logger, "Dir Does not work", "RungeKutta.txt", shouldRecord)));
-		paramsMap.emplace(rungeKuttaEnum, checkOdeParameters(new OdeParameters(params)));
+		solverMap.emplace(
+			rungeKuttaEnum, 
+			SolverParameters(
+			checkOdeAllocation(new RungeKutta4(
+				logger,
+				initalCondition.size())),
+			checkOutputAllocation(new OutputManager(
+				logger,
+				"Dir does not work",
+				"Runge_Kutta4.txt",
+				shouldRecord)),
+			checkOdeParameters(new OdeParameters(
+				params)),
+			initalCondition));
 	}
 	catch (std::exception& e)
 	{
@@ -92,21 +114,14 @@ OdeSolver::~OdeSolver()
 	logger->logData("Removing Solvers", __FILE__, __LINE__);
 
 	//Delete everything created
-	for (map<int,Ode*>::iterator el = solverMap.begin(); el != solverMap.end(); ++el)
+	for (map<int,SolverParameters>::iterator solverIter = solverMap.begin(); solverIter != solverMap.end(); ++solverIter)
 	{
-		//Gather all elements that need to be deleted
-		map<int, Ode*>::iterator solveIter = solverMap.find(el->first);
-
-		map<int, OutputManager*>::iterator outIter = outputMap.find(el->first);
-
-		map<int, OdeParameters*>::iterator paramIter = paramsMap.find(el->first);
-
-		delete paramIter->second;
-		delete outIter->second;
-		delete solveIter->second;
+		delete solverIter->second.getOdeMethod();
+		delete solverIter->second.getOdeParameters();
+		delete solverIter->second.getOutput();
 	}
 
-	logger->logData("Removed ODE Methods", __FILE__, __LINE__);
+	logger->logData("Removed Ode Entries", __FILE__, __LINE__);
 	logger->logData("Stopping Logging Tool", __FILE__, __LINE__);
 	logger->stop();
 }
@@ -137,14 +152,36 @@ void ode::OdeSolver::initalize(
     {
 		//Create our ODE Solver Methods
 		int eulerEnum = static_cast<int>(OdeParameters::OdeSolvers::EULER);
-		solverMap.emplace(eulerEnum, checkOdeAllocation(new Euler(logger, initalCondition)));
-		outputMap.emplace(eulerEnum, checkOutputAllocation(new OutputManager(logger, "Dir Does not work", "Euler.txt", shouldRecord)));
-		paramsMap.emplace(eulerEnum, checkOdeParameters(new OdeParameters(params)));
+		solverMap.emplace(
+			eulerEnum,
+			SolverParameters(
+				checkOdeAllocation(new Euler(
+					logger,
+					initalCondition.size())),
+				checkOutputAllocation(new OutputManager(
+					logger,
+					"Dir does not work",
+					"Euler.txt",
+					shouldRecord)),
+				checkOdeParameters(new OdeParameters(
+					params)),
+				initalCondition));
 
 		int rungeKuttaEnum = static_cast<int>(OdeParameters::OdeSolvers::RUNGE_KUTTA4);
-		solverMap.emplace(rungeKuttaEnum, checkOdeAllocation(new RungeKutta4(log, initalCondition)));
-		outputMap.emplace(rungeKuttaEnum, checkOutputAllocation(new OutputManager(logger, "Dir Does not work", "RungeKutta.txt", shouldRecord)));
-		paramsMap.emplace(rungeKuttaEnum, checkOdeParameters(new OdeParameters(params)));
+		solverMap.emplace(
+			rungeKuttaEnum,
+			SolverParameters(
+				checkOdeAllocation(new RungeKutta4(
+					logger,
+					initalCondition.size())),
+				checkOutputAllocation(new OutputManager(
+					logger,
+					"Dir does not work",
+					"Runge_Kutta4.txt",
+					shouldRecord)),
+				checkOdeParameters(new OdeParameters(
+					params)),
+				initalCondition));
     }
     catch (std::exception& e)
     {

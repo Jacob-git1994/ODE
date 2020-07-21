@@ -18,22 +18,23 @@ namespace ode
 
 		RungeKutta4(
 			Logger*, 
-			const valarray<double>&);
+			size_t);
 
 		virtual ~RungeKutta4() = default;
 
 		virtual void initalize(
 			Logger*,
-			const valarray<double>&) override;
+			size_t);
 
 		virtual void initalize(
-			const valarray<double>&) override;
+			size_t);
 
 		virtual void step(
 			unsigned int,
 			void (*func)(const valarray<double>&, valarray<double>&, double),
 			double,
-			double);
+			double,
+			valarray<double>&);
 	};
 
 

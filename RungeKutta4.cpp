@@ -5,40 +5,38 @@ using std::valarray;
 
 RungeKutta4::RungeKutta4(
 	Logger* logger,
-	const valarray<double>& sVec) :
-	Ode(logger, sVec)
+	size_t vSize) :
+	Ode(logger)
 {
-	k1.resize(sVec.size());
-	k2.resize(sVec.size());
-	k3.resize(sVec.size());
-	k4.resize(sVec.size());
+	k1.resize(vSize);
+	k2.resize(vSize);
+	k3.resize(vSize);
+	k4.resize(vSize);
 
 	log->logData("Initalized RungeKutta4", __FILE__,__LINE__);
 }
 
 void RungeKutta4::initalize(
 	Logger* logger,
-	const valarray<double>& sVec)
+	size_t vSize)
 {
-	Ode::initalize(logger, sVec);
+	Ode::initalize(logger);
 
-	k1.resize(sVec.size());
-	k2.resize(sVec.size());
-	k3.resize(sVec.size());
-	k4.resize(sVec.size());
+	k1.resize(vSize);
+	k2.resize(vSize);
+	k3.resize(vSize);
+	k4.resize(vSize);
 
 	log->logData("Initalized RungeKutta4", __FILE__,__LINE__);
 }
 
 void RungeKutta4::initalize(
-	const valarray<double>& sVec)
+	size_t vSize)
 {
-	Ode::initalize(sVec);
-
-	k1.resize(sVec.size());
-	k2.resize(sVec.size());
-	k3.resize(sVec.size());
-	k4.resize(sVec.size());
+	k1.resize(vSize);
+	k2.resize(vSize);
+	k3.resize(vSize);
+	k4.resize(vSize);
 
 	log->logData("Initalized RungeKutta4", __FILE__,__LINE__);
 }
@@ -47,7 +45,8 @@ void RungeKutta4::step(
 	unsigned int steps,
 	void (*func)(const valarray<double>&, valarray<double>&, double),
 	double t,
-	double dt)
+	double dt,
+	valarray<double>& stateVector)
 {
 	log->logData("Stepping State Vector", __FILE__,__LINE__);
 

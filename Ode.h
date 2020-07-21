@@ -17,8 +17,6 @@ namespace ode
 
 		Logger* log;
 
-		valarray<double> stateVector;
-
 	public:
 
 		Ode() = delete;
@@ -34,21 +32,10 @@ namespace ode
 		Ode(
 			Logger*);
 
-		Ode(
-			Logger*, 
-			const valarray<double>&);
-
 		virtual void initalize(
-			Logger*,
-			const valarray<double>&);
-
-		virtual void initalize(
-			const valarray<double>&);
+			Logger*);
 
 		virtual void step();
-
-		//Getter for state vector
-		inline const valarray<double>& getStateVector() { return stateVector; };
 	};
 
 
