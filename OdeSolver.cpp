@@ -55,9 +55,14 @@ OdeSolver::OdeSolver(
 		log->logData("Exiting Program Now", __FILE__, __LINE__);
 		exit(1);
 	}
+	else if (isImplmented)
+	{
+		log->logData("Solver is already implemented", __FILE__, __LINE__);
+		return;
+	}
 	else
 	{
-		//Do Nothing Here
+		//Nothing to do here
 	}
 
 	logger->logData("Initalizing Methods", __FILE__, __LINE__);
