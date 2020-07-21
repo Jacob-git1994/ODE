@@ -85,7 +85,7 @@
       <Filter>OdeFactory\Header</Filter>
     </ClInclude>
     <ClInclude Include="SolverParameters.h">
-      <Filter>Header Files</Filter>
+      <Filter>OdeFactory\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
